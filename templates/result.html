@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Resume Analysis Result</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+<h2>AI Resume Analyzer</h2>
+</header>
+
+<div class="result-wrapper">
+
+<h1 class="result-title">Resume Analysis Result</h1>
+
+<!-- Resume Score -->
+
+<div class="score-card">
+<h2>Resume Score</h2>
+
+<div class="score-circle">
+{{score}}%
+</div>
+
+<p>Your resume match score based on the job description.</p>
+</div>
+
+<!-- Skills Section -->
+
+<div class="skills-container">
+
+<div class="skills-box">
+<h3>Skills You Have</h3>
+
+<div class="skill-tags">
+{% for skill in skills %}
+<span>{{skill}}</span>
+{% endfor %}
+</div>
+
+</div>
+
+<div class="skills-box">
+<h3>Required Skills</h3>
+
+<div class="skill-tags">
+{% for skill in required_skills %}
+<span>{{skill}}</span>
+{% endfor %}
+</div>
+
+</div>
+
+<div class="skills-box">
+<h3>Missing Skills</h3>
+
+<div class="skill-tags missing">
+{% for skill in missing %}
+<span>{{skill}}</span>
+{% endfor %}
+</div>
+
+{% if missing|length == 0 %}
+<p class="success-msg">No missing skills. Your resume matches the job description.</p>
+{% endif %}
+
+</div>
+
+</div>
+
+<!-- AI Analysis Section -->
+
+<div class="ai-analysis">
+
+<h2>AI Resume Review</h2>
+
+<div class="ai-box">
+
+<div class="ai-text">
+{{ ai_advice }}
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

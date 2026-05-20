@@ -1,0 +1,19 @@
+REQUIRED_SKILLS = [
+    "python",
+    "machine learning",
+    "data science",
+    "sql",
+    "flask",
+    "git",
+]
+
+
+def find_skill_gap(user_skills):
+
+    missing = []
+
+    for skill in REQUIRED_SKILLS:
+        if skill not in user_skills:
+            missing.append(skill)
+
+    return missing
